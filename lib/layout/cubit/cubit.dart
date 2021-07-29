@@ -25,7 +25,7 @@ class RelCubit extends Cubit<RelStates>{
   ];
   void changeNavBar(index){
     currentIndex = index;
-    emit(RelChangeNavBartate());
+    emit(RelChangeNavBarState());
   }
 
   void changeDarkMode(){
@@ -33,6 +33,16 @@ class RelCubit extends Cubit<RelStates>{
     CacheHelper.setDarkMode(darkMode: !isDark).then((value) {
 
       emit(RelChangeDarkModeState());
+
+    });
+
+  }
+
+  void changeLanguage({@required isEnglish}){
+    //bool isEnglish = CacheHelper.getLanguage();
+    CacheHelper.setLanguage(lang: isEnglish).then((value) {
+
+      emit(RelChangeLanguageState());
 
     });
 

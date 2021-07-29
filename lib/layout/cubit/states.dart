@@ -2,6 +2,7 @@ class RelStates {}
 
 class RelInitialState extends RelStates{}
 
-class RelChangeNavBartate extends RelStates{}
+class RelChangeNavBarState extends RelStates{}
 class RelChangeDarkModeState extends RelStates{}
+class RelChangeLanguageState extends RelStates{}
 

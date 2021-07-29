@@ -25,12 +25,12 @@ class HomeLayout extends StatelessWidget {
               style: Theme.of(context).textTheme.caption,
             ),
             actions: [
-              IconButton(
-                onPressed: (){
-                  cubit.changeDarkMode();
-                },
-                icon: Icon(Icons.nights_stay),
-              ),
+              // IconButton(
+              //   onPressed: (){
+              //     cubit.changeDarkMode();
+              //   },
+              //   icon: Icon(Icons.nights_stay),
+              // ),
               IconButton(
                 onPressed: (){
                   AwesomeDialog(

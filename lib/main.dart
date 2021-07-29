@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         listener: (context, state){},
         builder: (context, state){
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'Relationships app',
             theme: ThemeData(
               primarySwatch: Colors.deepOrange,
