@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:relation_ships_program/models/person_model.dart';
 import 'package:relation_ships_program/screens/add_new_person.dart';
 import 'package:relation_ships_program/screens/drawer_screen.dart';
 import 'package:relation_ships_program/shared/components.dart';
@@ -14,7 +15,47 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  BlocConsumer<RelCubit,RelStates>(
-      listener: (context, state){},
+      listener: (context, state){
+        if(state is RelDeleteDatabase){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+                content: Text(
+                  'Deleted Successfully',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+            ),
+          );
+        }
+        if(state is RelUpdateDatabase){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Update Successfully',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          );
+        }
+        if(state is RelInsertDatabase){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Inserted Successfully',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          );
+        }
+      },
       builder: (context, state){
         RelCubit cubit = RelCubit.get(context);
         return Scaffold(
@@ -63,7 +104,20 @@ class HomeLayout extends StatelessWidget {
           drawer: MyDrawer(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              navigateTo(context, AddNewPerson());
+              //navigateTo(context, AddNewPerson());
+
+              // test crud functions:
+
+              cubit.insertToDatabase(person: PersonModel(
+                name: 'salah',
+                number: '0711025880',
+                birthDate: '2000',
+                informationAbout: 'flutter developer',
+                relation: relationShips[0],
+              ));
+              //cubit.deleteFromDatabase(id: 10);
+              //cubit.updateRelationFromDatabase(id: 7, newRelation: relationShips[0]);
+              //cubit.getDataFromDatabase(cubit.database);
 
             },
             child: Icon(Icons.add,),
@@ -92,7 +146,7 @@ class HomeLayout extends StatelessWidget {
             onTap: (int i) {
               cubit.changeNavBar(i);
             },
-            top: -20.0,
+            top: -10.0,
             //  curveSize: 80,
             height: 60.0,
           ),

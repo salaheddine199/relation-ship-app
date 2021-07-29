@@ -11,6 +11,9 @@ class BusinessScreen extends StatelessWidget {
     return BlocConsumer<RelCubit,RelStates>(
       listener: (context, state){},
       builder: (context, state){
+        if(state is RelGetLoadingDatabase || state is RelGetLoadingCreateDatabase)
+          return Center(child: CircularProgressIndicator());
+        // else{}
         List list = RelCubit.get(context).business;
         return buildOurPersonItem(context, list, 'Business');
       },

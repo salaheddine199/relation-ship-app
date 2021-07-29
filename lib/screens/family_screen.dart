@@ -9,10 +9,17 @@ class FamilyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RelCubit,RelStates>(
-      listener: (context, state){},
+      listener: (context, state){
+        // if(state is RelGetLoadingDatabase)
+        //   return Center(child: CircularProgressIndicator());
+      },
       builder: (context, state){
-        List list = RelCubit.get(context).family;
-        return buildOurPersonItem(context, list, 'Family');
+        if(state is RelGetLoadingDatabase || state is RelGetLoadingCreateDatabase)
+          return Center(child: CircularProgressIndicator());
+        // else{}
+          List list = RelCubit.get(context).family;
+          return buildOurPersonItem(context, list, 'Family',);
+
       },
     );
   }

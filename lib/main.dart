@@ -23,9 +23,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => RelCubit(),
+      create: (BuildContext context) => RelCubit()..createDatabase(),
       child: BlocConsumer<RelCubit,RelStates>(
-        listener: (context, state){},
+        listener: (context, state){
+          // if(state is RelDeleteDatabase){ // ياه نعرف ادا نقدر نديرها في اي بلاصة نحل ول
+          //   print(' raaaaaaaaaaaak drt deleeeeeeeeeeete');
+          // }
+        },
         builder: (context, state){
           return MaterialApp(
             debugShowCheckedModeBanner: false,
