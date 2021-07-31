@@ -55,7 +55,7 @@ class MyDrawer extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).textTheme.headline3.color,
+                            color: Theme.of(context).textTheme.headline3!.color,
                           ),
                         ),
                       ],
@@ -137,7 +137,7 @@ class MyDrawer extends StatelessWidget {
                               hint: Text(
                                 '${CacheHelper.getLanguage()? 'English':'Arabic'}',
                                 style: TextStyle(
-                                  color: Theme.of(context).textTheme.headline3.color.withOpacity(.7),
+                                  color: Theme.of(context).textTheme.headline3!.color!.withOpacity(.7),
                                   fontSize: 12,
                                 ),
                               ),
@@ -150,7 +150,7 @@ class MyDrawer extends StatelessWidget {
                                   child: new Text(value),
                                 );
                               }).toList(),
-                              onChanged: (String value) {
+                              onChanged: (String? value) {
                                 if(value == 'Arabic')
                                   cubit.changeLanguage(isEnglish: false);
                                 else cubit.changeLanguage(isEnglish: true);

@@ -52,7 +52,7 @@ Widget buildOurPersonItem(context, list, String relation){
                         child: Text(
                           '${PersonModel.fromJson(list[index]).id}',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.headline3.color,
+                            color: Theme.of(context).textTheme.headline3!.color,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
@@ -68,7 +68,7 @@ Widget buildOurPersonItem(context, list, String relation){
                               child: Text(
                                 '${PersonModel.fromJson(list[index]).name}',
                                 style: TextStyle(
-                                  color: Theme.of(context).textTheme.headline3.color,
+                                  color: Theme.of(context).textTheme.headline3!.color,
                                   fontSize: 18,
                                 ),
                                 maxLines: 1,
@@ -78,7 +78,7 @@ Widget buildOurPersonItem(context, list, String relation){
                             Text(
                               '${PersonModel.fromJson(list[index]).number}',
                               style: TextStyle(
-                                color: Theme.of(context).textTheme.headline3.color.withOpacity(.7),
+                                color: Theme.of(context).textTheme.headline3!.color!.withOpacity(.7),
                                 fontSize: 16,
                               ),
                             ),

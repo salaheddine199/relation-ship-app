@@ -41,7 +41,7 @@ class RelCubit extends Cubit<RelStates>{
 
   }
 
-  void changeLanguage({@required isEnglish}){
+  void changeLanguage({required isEnglish}){
     //bool isEnglish = CacheHelper.getLanguage();
     CacheHelper.setLanguage(lang: isEnglish).then((value) {
 
@@ -79,7 +79,7 @@ class RelCubit extends Cubit<RelStates>{
 //List<Map<String, dynamic>> everyOne =[]; // only for now..
 
 
-  Database database;
+  late Database database;
 
   void createDatabase() async{
 
@@ -113,7 +113,7 @@ class RelCubit extends Cubit<RelStates>{
 
 
   void insertToDatabase({
-  @required PersonModel person,
+  required PersonModel person,
 }){
     database.transaction((txn){
       return txn.rawInsert(
@@ -134,7 +134,7 @@ class RelCubit extends Cubit<RelStates>{
   }
 
   void deleteFromDatabase({
-  @required int id,
+  required int? id,
 }){
     database.rawDelete(
       'DELETE FROM person WHERE id =?',
@@ -158,8 +158,8 @@ class RelCubit extends Cubit<RelStates>{
 
 
   void updateRelationFromDatabase({
-    @required int id,
-    @required String newRelation,
+    required int? id,
+    required String newRelation,
   }){
     database.rawUpdate(
       'UPDATE person SET relation = ? WHERE id = ?',
@@ -197,11 +197,11 @@ class RelCubit extends Cubit<RelStates>{
       // TODO u can parse them to PersonModel b4 adding them, and make those 3 lists List<PersonMode>
       for(Map item in value){
         if(item['relation'] == relationShips[0]) // family
-          family.add(item);
+          family.add(item as Map<String, dynamic>);
         else if(item['relation'] == relationShips[1]) // friend
-          friends.add(item);
+          friends.add(item as Map<String, dynamic>);
         else if(item['relation'] == relationShips[2]) // business
-          business.add(item);
+          business.add(item as Map<String, dynamic>);
       }
 
       print('list of family : $family');

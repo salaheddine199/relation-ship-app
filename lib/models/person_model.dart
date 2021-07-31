@@ -1,10 +1,10 @@
 class PersonModel {
-  final int id;
-  final String name;
-  final String number;
-  final String birthDate;
-  final String informationAbout;
-  final String relation;
+  final int? id;
+  final String? name;
+  final String? number;
+  final String? birthDate;
+  final String? informationAbout;
+  final String? relation;
 
   PersonModel({
     this.id,

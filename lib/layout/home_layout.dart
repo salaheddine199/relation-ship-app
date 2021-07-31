@@ -85,7 +85,7 @@ class HomeLayout extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: Theme.of(context).textTheme.headline3.color,
+                      color: Theme.of(context).textTheme.headline3!.color,
                     ),
                     ),
                     //autoHide: Duration(seconds: 2),
@@ -105,18 +105,23 @@ class HomeLayout extends StatelessWidget {
             onPressed: () {
               //navigateTo(context, AddNewPerson());
 
+            /*
+
               // test crud functions:
 
-              cubit.insertToDatabase(person: PersonModel(
-                name: 'salah',
-                number: '0711025880',
-                birthDate: '2000',
+
+            cubit.insertToDatabase(person: PersonModel(
+                name: 'islam',
+                number: '071011988',
+                birthDate: '2002',
                 informationAbout: 'flutter developer',
-                relation: relationShips[0],
+                relation: relationShips[2],
               ));
-              //cubit.deleteFromDatabase(id: 10);
-              //cubit.updateRelationFromDatabase(id: 7, newRelation: relationShips[0]);
+
+              //cubit.deleteFromDatabase(id: 15);
+              //cubit.updateRelationFromDatabase(id: 15, newRelation: relationShips[1]);
               //cubit.getDataFromDatabase(cubit.database);
+*/
 
             },
             child: Icon(Icons.add,),
@@ -139,8 +144,8 @@ class HomeLayout extends StatelessWidget {
               TabItem(icon: Icons.person, title: 'Business'),
             ],
             backgroundColor: Theme.of(context).primaryColor,
-            color: Theme.of(context).textTheme.headline3.color,
-            activeColor: Theme.of(context).textTheme.headline3.color,
+            color: Theme.of(context).textTheme.headline3!.color,
+            activeColor: Theme.of(context).textTheme.headline3!.color,
             initialActiveIndex: cubit.currentIndex,//optional, default as 0
             onTap: (int i) {
               cubit.changeNavBar(i);
