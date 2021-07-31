@@ -12,11 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.3
   shared_preferences: ^2.0.6
-  flutter_bloc: ^7.0.0
+  flutter_bloc: ^7.1.0
   bloc: ^7.0.0
-  conditional_builder: ^1.0.2
+  flutter_conditional_rendering: ^2.0.0
   awesome_dialog: ^2.1.0
   convex_bottom_bar: ^3.0.0
   flutter_switch: ^0.3.2

@@ -3,7 +3,6 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:relation_ships_program/models/person_model.dart';
-import 'package:relation_ships_program/screens/add_new_person.dart';
 import 'package:relation_ships_program/screens/drawer_screen.dart';
 import 'package:relation_ships_program/shared/components.dart';
 
