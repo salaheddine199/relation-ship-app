@@ -3,7 +3,6 @@ import 'package:flutter_conditional_rendering/conditional.dart';
 import 'package:relation_ships_program/layout/cubit/cubit.dart';
 import 'package:relation_ships_program/models/person_model.dart';
 
-
 List<String> relationShips =[
   'family',
   'friend',
@@ -19,15 +18,59 @@ void navigateTo(context, widget) {
   );
 }
 
+Widget myTestFormField({
+  @required TextEditingController controller,
+  @required String label,
+  @required Function validator,
+  @required BuildContext context,
+  Icon icon,
+  Function onTap,
+  bool readOnly = false,
+  bool obscureText = false,
+  TextInputType keyboard = TextInputType.text,
+  double padding = 16,
+  int max = 1,
+}){
+  return TextFormField(
+
+    decoration: InputDecoration(
+      contentPadding: EdgeInsets.all(padding),
+      prefixIcon: icon,
+      labelText: label,
+      labelStyle: TextStyle(
+        color: Theme.of(context).textTheme.headline3.color.withOpacity(.7),
+      ),
+      //enabledBorder: OutlineInputBorder(),
+      border: OutlineInputBorder(),
+    ),
+    maxLines: max,
+    validator: validator,
+    onTap: onTap,
+    controller: controller,
+    keyboardType: keyboard,
+    readOnly: readOnly,
+    obscureText: obscureText,
+  );
+}
+
 Widget buildOurPersonItem(context, list, String relation){
+
+  // Friend Family Business
+  List<String> relations ;//=['',''];
+  if(relation == 'Family')
+    relations = ['friend','business'];
+  else if(relation == 'Friend')
+    relations = ['family','business'];
+  else
+    relations = ['family','friend'];
 
   return Conditional.single(
       context: context,
       conditionBuilder: (context) => list.length>0,
       widgetBuilder: (context) => Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.separated
-          (
+        child: ListView.separated(
+          physics: BouncingScrollPhysics(),
           itemBuilder: (context, index)=> Dismissible(
             key: Key( '${PersonModel.fromJson(list[index]).id}' ),
             onDismissed: (DismissDirection direction){
@@ -90,11 +133,13 @@ Widget buildOurPersonItem(context, list, String relation){
                         color: Colors.white,
                         icon: Icon(Icons.more_vert),
                         itemBuilder: (context){
+                          //return ourPopMenuItem(relation);
                           return [
                             PopupMenuItem(
                               value: 'more',
-                              child: Text('more information'),
+                              child: Text('more'),
                             ),
+                            /*
                             PopupMenuItem(
                               value: 'family',
                               child: Text('make them family'),
@@ -107,7 +152,22 @@ Widget buildOurPersonItem(context, list, String relation){
                               value: 'business',
                               child: Text('make them business'),
                             ),
+                            */
+
+                            PopupMenuItem(
+                              value: '${relations[0]}',
+                              child: Text('-> ${relations[0]}'),
+                            ),
+                            PopupMenuItem(
+                              value: '${relations[1]}',
+                              child: Text('-> ${relations[1]}'),
+                            ),
+
                           ];
+                        },
+                        //padding: EdgeInsets.only(left: 0),
+                        onCanceled: (){
+                          print('chooose awdi lah');
                         },
                         onSelected: (String value){
                           if (value == 'more') {
@@ -367,5 +427,6 @@ Widget buildOurPersonItem(context, list, String relation){
       ),
     ),
   );*/
-}
 
+
+}

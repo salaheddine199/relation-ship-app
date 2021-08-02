@@ -2,7 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:relation_ships_program/models/person_model.dart';
+import 'package:relation_ships_program/screens/add_new_person.dart';
 import 'package:relation_ships_program/screens/drawer_screen.dart';
 import 'package:relation_ships_program/shared/components.dart';
 
@@ -100,20 +100,77 @@ class HomeLayout extends StatelessWidget {
             ],
           ),
           body: cubit.screens[cubit.currentIndex],
+        //   body: CustomScrollView(
+        //     slivers: [
+        //       SliverAppBar(
+        //         title: Text(
+        //           cubit.titles[cubit.currentIndex],
+        //           style: Theme.of(context).textTheme.caption,
+        //         ),
+        //         actions: [
+        //           // IconButton(
+        //           //   onPressed: (){
+        //           //     cubit.changeDarkMode();
+        //           //   },
+        //           //   icon: Icon(Icons.nights_stay),
+        //           // ),
+        //           IconButton(
+        //             onPressed: (){
+        //               AwesomeDialog(
+        //                 context: context,
+        //                 dialogType: DialogType.WARNING,
+        //                 animType: AnimType.SCALE,
+        //                 title: 'Warning',
+        //                 //desc: 'I didn\'t implement the search process .............',
+        //                 body: Text(
+        //                   'I did not implement the search process yet    ',
+        //                   textAlign: TextAlign.center,
+        //                   style: TextStyle(
+        //                     fontWeight: FontWeight.bold,
+        //                     fontSize: 16,
+        //                     color: Theme.of(context).textTheme.headline3.color,
+        //                   ),
+        //                 ),
+        //                 //autoHide: Duration(seconds: 2),
+        //                 //btnCancelOnPress: () {},
+        //                 btnOkOnPress: () {},
+        //                 btnOkIcon: Icons.done_all,
+        //                 btnOkColor: Theme.of(context).accentColor,
+        //               )..show();
+        //             },
+        //             icon: Icon(Icons.search),
+        //           ),
+        //         ],
+        //       ),
+        //       SliverFillRemaining(
+        //         hasScrollBody: true,
+        //         child: cubit.screens[cubit.currentIndex],
+        //       ),
+        //       /*
+        //       SliverList(
+        //     delegate: SliverChildBuilderDelegate(
+        //   (context, index) {
+        //     return Text('Hello world');
+        //   },
+        //   childCount: 50,
+        // )),
+        //        */
+        //     ],
+        //   ),
           drawer: MyDrawer(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              //navigateTo(context, AddNewPerson());
+              navigateTo(context, AddNewPerson());
 
               // test crud functions:
 
-              cubit.insertToDatabase(person: PersonModel(
-                name: 'salah',
-                number: '0711025880',
-                birthDate: '2000',
-                informationAbout: 'flutter developer',
-                relation: relationShips[0],
-              ));
+              // cubit.insertToDatabase(person: PersonModel(
+              //   name: 'salah',
+              //   number: '0711025880',
+              //   birthDate: '2000',
+              //   informationAbout: 'flutter developer',
+              //   relation: relationShips[0],
+              // ));
               //cubit.deleteFromDatabase(id: 10);
               //cubit.updateRelationFromDatabase(id: 7, newRelation: relationShips[0]);
               //cubit.getDataFromDatabase(cubit.database);

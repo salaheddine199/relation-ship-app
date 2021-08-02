@@ -6,7 +6,7 @@ import 'package:relation_ships_program/models/person_model.dart';
 import 'package:relation_ships_program/screens/business_screen.dart';
 import 'package:relation_ships_program/screens/family_screen.dart';
 import 'package:relation_ships_program/screens/friends_screen.dart';
-import 'package:relation_ships_program/shared/cashe_helper.dart';
+import 'package:relation_ships_program/shared/sharedPref_helper.dart';
 import 'package:relation_ships_program/shared/components.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -27,6 +27,11 @@ class RelCubit extends Cubit<RelStates>{
     'Business Section',
   ];
   void changeNavBar(index){
+    if(currentIndex == index){
+      print('same navigation bar item, not emit states');
+      return ;
+    }
+    print('yyyyyyyyyyyaw new one');
     currentIndex = index;
     emit(RelChangeNavBarState());
   }
@@ -220,5 +225,13 @@ class RelCubit extends Cubit<RelStates>{
   }
 
 
+
+
+  // radio buttons:
+  String radioBtnValue = 'family';
+  void changeRadioButton(String value){
+    radioBtnValue = value;
+    emit(RelChangeRadioButtonState());
+  }
 
 }

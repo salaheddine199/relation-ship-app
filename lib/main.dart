@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:relation_ships_program/layout/cubit/cubit.dart';
 import 'package:relation_ships_program/layout/home_layout.dart';
 import 'package:relation_ships_program/shared/bloc_observer.dart';
-import 'package:relation_ships_program/shared/cashe_helper.dart';
+import 'package:relation_ships_program/shared/sharedPref_helper.dart';
 import 'package:relation_ships_program/shared/colors.dart';
 
 import 'layout/cubit/states.dart';
@@ -15,22 +15,23 @@ void main() async{
   Bloc.observer = MyBlocObserver();
   await CacheHelper.init();
 
-
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => RelCubit()..createDatabase(),
       child: BlocConsumer<RelCubit,RelStates>(
         listener: (context, state){
-          // if(state is RelDeleteDatabase){ // ياه نعرف ادا نقدر نديرها في اي بلاصة نحل ول
+          // if(state is RelDeleteDatabase){ // ياه نعرف ادا نقدر نديرها في اي بلاصة نحب ول
           //   print(' raaaaaaaaaaaak drt deleeeeeeeeeeete');
           // }
         },
         builder: (context, state){
+
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Relationships app',
@@ -128,6 +129,16 @@ class MyApp extends StatelessWidget {
             themeMode: CacheHelper.getDarkMode()
                 ?ThemeMode.dark
                 :ThemeMode.light,
+
+            // here we test if this is the first time so set it 3la system
+            // else choose what he'll choose later
+            // themeMode: _isFrst
+            //     ? ThemeMode.system
+            //     : CacheHelper.getDarkMode()
+            //       ?ThemeMode.dark
+            //       :ThemeMode.light,
+
+
             home: HomeLayout(),
           );
         },

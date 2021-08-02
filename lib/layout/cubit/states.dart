@@ -5,6 +5,7 @@ class RelInitialState extends RelStates{}
 class RelChangeNavBarState extends RelStates{}
 class RelChangeDarkModeState extends RelStates{}
 class RelChangeLanguageState extends RelStates{}
+class RelChangeRadioButtonState extends RelStates{}
 
 class RelInsertDatabase extends RelStates{}
 class RelDeleteDatabase extends RelStates{}
