@@ -13,7 +13,7 @@ void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
-  await CacheHelper.init();
+  await SharedPrefHelper.init();
 
   runApp(MyApp());
 }
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
               primaryColor: MyColors.bgLightColor,
               cardColor: MyColors.bgLightColor,
               scaffoldBackgroundColor: MyColors.bgLightColor,
-                appBarTheme: AppBarTheme(
+              appBarTheme: AppBarTheme(
                   backwardsCompatibility: false,
                   systemOverlayStyle: SystemUiOverlayStyle(
                     statusBarIconBrightness: Brightness.dark,
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
                     color: MyColors.blackColor,
                   ),
                 ),
-                bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              bottomNavigationBarTheme: BottomNavigationBarThemeData(
                   backgroundColor: Color(0xffaabbff),
                   elevation: 25.0,
                   selectedItemColor: MyColors.blackColor,
@@ -126,7 +126,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
 
-            themeMode: CacheHelper.getDarkMode()
+            themeMode: SharedPrefHelper.getDarkMode()
                 ?ThemeMode.dark
                 :ThemeMode.light,
 

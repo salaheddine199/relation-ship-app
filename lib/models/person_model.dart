@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class PersonModel {
   final int id;
   final String name;
@@ -7,12 +9,12 @@ class PersonModel {
   final String relation;
 
   PersonModel({
-    this.id,
-    this.name,
-    this.number,
-    this.birthDate,
-    this.informationAbout,
-    this.relation,
+    @required this.id,
+    @required this.name,
+    @required this.number,
+    @required this.birthDate,
+    @required this.informationAbout,
+    @required this.relation,
   });
 
   factory PersonModel.fromJson(Map<String, dynamic> json) => PersonModel(

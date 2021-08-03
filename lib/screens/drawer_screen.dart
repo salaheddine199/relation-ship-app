@@ -20,7 +20,7 @@ class MyDrawer extends StatelessWidget {
       },
       builder: (context, state){
         RelCubit cubit = RelCubit.get(context);
-        bool value = CacheHelper.getDarkMode();
+        bool value = SharedPrefHelper.getDarkMode();
         return Drawer(
           elevation: 25.0,
           semanticLabel: 'myDrawer',
@@ -136,7 +136,7 @@ class MyDrawer extends StatelessWidget {
                               ),
                               DropdownButton<String>(
                                 hint: Text(
-                                  '${CacheHelper.getLanguage()? 'English':'Arabic'}',
+                                  '${SharedPrefHelper.getLanguage()? 'English':'Arabic'}',
                                   style: TextStyle(
                                     color: Theme.of(context).textTheme.headline3.color.withOpacity(.7),
                                     fontSize: 12,

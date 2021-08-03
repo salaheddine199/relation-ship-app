@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CacheHelper{
+class SharedPrefHelper{
 
   static SharedPreferences sharedPreferences;
 
@@ -26,7 +26,7 @@ class CacheHelper{
   }
 
 
-  // static Future<bool> setIsFirstTime({@required bool isFirst}) async{
+  // static Future<bool> setIsFirstTime({@@required bool isFirst}) async{
   //   return await sharedPreferences.setBool('isFirstTime', isFirst);
   // }
   // static bool getIsFirstTime(){

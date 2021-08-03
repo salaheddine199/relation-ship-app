@@ -28,7 +28,7 @@ class RelCubit extends Cubit<RelStates>{
   ];
   void changeNavBar(index){
     if(currentIndex == index){
-      print('same navigation bar item, not emit states');
+      print('same navigation bar item, do not emit states');
       return ;
     }
     print('yyyyyyyyyyyaw new one');
@@ -37,8 +37,8 @@ class RelCubit extends Cubit<RelStates>{
   }
 
   void changeDarkMode(){
-    bool isDark = CacheHelper.getDarkMode();
-    CacheHelper.setDarkMode(darkMode: !isDark).then((value) {
+    bool isDark = SharedPrefHelper.getDarkMode();
+    SharedPrefHelper.setDarkMode(darkMode: !isDark).then((value) {
 
       emit(RelChangeDarkModeState());
 
@@ -48,7 +48,7 @@ class RelCubit extends Cubit<RelStates>{
 
   void changeLanguage({@required isEnglish}){
     //bool isEnglish = CacheHelper.getLanguage();
-    CacheHelper.setLanguage(lang: isEnglish).then((value) {
+    SharedPrefHelper.setLanguage(lang: isEnglish).then((value) {
 
       emit(RelChangeLanguageState());
 
@@ -89,6 +89,7 @@ class RelCubit extends Cubit<RelStates>{
   void createDatabase() async{
 
     emit(RelGetLoadingCreateDatabase()); // TODO not sure about this
+      // I did it so we can control more the circular progress bar when data is not coming yet
 
 
     //then : emit((AppCreateDatabaseState()); // TODO add CreateDB State
@@ -199,8 +200,8 @@ class RelCubit extends Cubit<RelStates>{
       friends.clear();
       business.clear();
 
-      // TODO u can parse them to PersonModel b4 adding them, and make those 3 lists List<PersonMode>
-      for(Map item in value){
+      // TODO u can parse them to PersonModel b4 adding them, and make those 3 lists List<PersonModel>
+      for(Map<String, dynamic> item in value){
         if(item['relation'] == relationShips[0]) // family
           family.add(item);
         else if(item['relation'] == relationShips[1]) // friend

@@ -43,6 +43,9 @@ Widget myTestFormField({
       //enabledBorder: OutlineInputBorder(),
       border: OutlineInputBorder(),
     ),
+    style: TextStyle(
+      color: Theme.of(context).textTheme.headline3.color.withOpacity(.7),
+    ),
     maxLines: max,
     validator: validator,
     onTap: onTap,

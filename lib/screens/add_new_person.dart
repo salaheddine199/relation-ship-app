@@ -17,8 +17,7 @@ class AddNewPerson extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RelCubit, RelStates>
-      (
+    return BlocConsumer<RelCubit, RelStates>(
       listener: (context, state){
         if(state is RelInsertDatabase){
           Navigator.pop(context);
@@ -76,7 +75,7 @@ class AddNewPerson extends StatelessWidget {
                       myTestFormField(
                         context: context,
                         validator: (String value) {
-                          if (value.isEmpty) return 'brith date must not be empty';
+                          if (value.isEmpty) return 'birth date must not be empty';
                           return null;
                         },
                         readOnly: true,
@@ -86,7 +85,7 @@ class AddNewPerson extends StatelessWidget {
                             initialDate: DateTime.now(),
                             firstDate: DateTime.utc(1950),
                             lastDate: DateTime.utc(2025),
-                          ).then((value) {
+                          ).then((DateTime value) {
                             String _date =
                                 '${value.day}/${value.month}/${value.year}';
                             _birthDateController.text = _date;
@@ -163,6 +162,7 @@ class AddNewPerson extends StatelessWidget {
                                   informationAbout: _informationAboutController.text,
                                   birthDate: _birthDateController.text,
                                   relation: _relationController.text,
+                                  id: 0, // Just to avoid null safey error this '0'value won't do nothing
                                 );
 
                                 cubit.insertToDatabase(person: person);
