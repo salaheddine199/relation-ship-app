@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -105,7 +104,7 @@ class MyDrawer extends StatelessWidget {
                               ),
                             ),
                             FlutterSwitch(
-                              activeColor: Theme.of(context).accentColor,
+                              activeColor: Theme.of(context).primaryColor,
                               height: 30.0,
                               width: 65.0,
                               value: value,

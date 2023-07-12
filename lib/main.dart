@@ -40,7 +40,6 @@ class MyApp extends StatelessWidget {
               cardColor: MyColors.bgLightColor,
               scaffoldBackgroundColor: MyColors.bgLightColor,
                 appBarTheme: AppBarTheme(
-                  backwardsCompatibility: false,
                   systemOverlayStyle: SystemUiOverlayStyle(
                     statusBarIconBrightness: Brightness.dark,
                     statusBarColor: MyColors.bgLightColor,
@@ -85,7 +84,6 @@ class MyApp extends StatelessWidget {
               primaryColor: MyColors.bgDarkColor,
               cardColor: MyColors.bgDarkColor,
               appBarTheme: AppBarTheme(
-                backwardsCompatibility: false,
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarIconBrightness: Brightness.light,
                   statusBarColor: Color(0xFF4B3B33),

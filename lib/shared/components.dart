@@ -183,7 +183,7 @@ Widget buildOurPersonItem(context, list, String relation){
             Icon(
               Icons.family_restroom,
               size: 70,
-              color: Theme.of(context).accentColor.withOpacity(.6),
+              color: Theme.of(context).primaryColor.withOpacity(.6),
             ),
             SizedBox(height: 20,),
             Text(

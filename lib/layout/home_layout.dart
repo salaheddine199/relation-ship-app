@@ -92,7 +92,7 @@ class HomeLayout extends StatelessWidget {
                     //btnCancelOnPress: () {},
                     btnOkOnPress: () {},
                     btnOkIcon: Icons.done_all,
-                    btnOkColor: Theme.of(context).accentColor,
+                    btnOkColor: Theme.of(context).primaryColor,
                   )..show();
                 },
                 icon: Icon(Icons.search),
