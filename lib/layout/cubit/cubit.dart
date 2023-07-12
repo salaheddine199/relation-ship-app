@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:relation_ships_program/layout/cubit/states.dart';
-import 'package:relation_ships_program/screens/business_screen.dart';
-import 'package:relation_ships_program/screens/family_screen.dart';
-import 'package:relation_ships_program/screens/friends_screen.dart';
-import 'package:relation_ships_program/shared/cashe_helper.dart';
+import 'package:relationships/layout/cubit/states.dart';
+import 'package:relationships/screens/business_screen.dart';
+import 'package:relationships/screens/family_screen.dart';
+import 'package:relationships/screens/friends_screen.dart';
+import 'package:relationships/shared/cashe_helper.dart';
 
 class RelCubit extends Cubit<RelStates>{
 

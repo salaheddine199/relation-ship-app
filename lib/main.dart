@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:relation_ships_program/layout/cubit/cubit.dart';
-import 'package:relation_ships_program/layout/home_layout.dart';
-import 'package:relation_ships_program/shared/bloc_observer.dart';
-import 'package:relation_ships_program/shared/cashe_helper.dart';
-import 'package:relation_ships_program/shared/colors.dart';
+import 'package:relationships/layout/cubit/cubit.dart';
+import 'package:relationships/layout/home_layout.dart';
+import 'package:relationships/shared/bloc_observer.dart';
+import 'package:relationships/shared/cashe_helper.dart';
+import 'package:relationships/shared/colors.dart';
 
 import 'layout/cubit/states.dart';
 
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
               cardColor: MyColors.bgLightColor,
               scaffoldBackgroundColor: MyColors.bgLightColor,
                 appBarTheme: AppBarTheme(
-                  backwardsCompatibility: false,
+                  // backwardsCompatibility: false,
                   systemOverlayStyle: SystemUiOverlayStyle(
                     statusBarIconBrightness: Brightness.dark,
                     statusBarColor: MyColors.bgLightColor,
@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
               primaryColor: MyColors.bgDarkColor,
               cardColor: MyColors.bgDarkColor,
               appBarTheme: AppBarTheme(
-                backwardsCompatibility: false,
+                // backwardsCompatibility: false,
                 systemOverlayStyle: SystemUiOverlayStyle(
                   statusBarIconBrightness: Brightness.light,
                   statusBarColor: Color(0xFF4B3B33),

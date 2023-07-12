@@ -2,9 +2,9 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:relation_ships_program/screens/add_new_person.dart';
-import 'package:relation_ships_program/screens/drawer_screen.dart';
-import 'package:relation_ships_program/shared/components.dart';
+import 'package:relationships/screens/add_new_person.dart';
+import 'package:relationships/screens/drawer_screen.dart';
+import 'package:relationships/shared/components.dart';
 
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
@@ -45,14 +45,14 @@ class HomeLayout extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: Theme.of(context).textTheme.headline3.color,
+                      color: Theme.of(context).textTheme.headline3!.color,
                     ),
                     ),
                     //autoHide: Duration(seconds: 2),
                     //btnCancelOnPress: () {},
                     btnOkOnPress: () {},
                     btnOkIcon: Icons.done_all,
-                    btnOkColor: Theme.of(context).accentColor,
+                    btnOkColor: Theme.of(context).primaryColor,
                   )..show();
                 },
                 icon: Icon(Icons.search),
@@ -86,8 +86,8 @@ class HomeLayout extends StatelessWidget {
               TabItem(icon: Icons.person, title: 'Business'),
             ],
             backgroundColor: Theme.of(context).primaryColor,
-            color: Theme.of(context).textTheme.headline3.color,
-            activeColor: Theme.of(context).textTheme.headline3.color,
+            color: Theme.of(context).textTheme.headline3!.color,
+            activeColor: Theme.of(context).textTheme.headline3!.color,
             initialActiveIndex: cubit.currentIndex,//optional, default as 0
             onTap: (int i) {
               cubit.changeNavBar(i);

@@ -1,6 +1,5 @@
-import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:relation_ships_program/models/person_model.dart';
+import 'package:relationships/models/person_model.dart';
 
 void navigateTo(context, widget) {
   Navigator.push(
@@ -12,9 +11,8 @@ void navigateTo(context, widget) {
 }
 
 Widget buildOurPersonItem(context, list, String relation){
-  return ConditionalBuilder(
-    condition: list.length>0,
-    builder: (context)=> Padding(
+  if(list.length>0)
+    return Padding(
       padding: const EdgeInsets.all(16.0),
       child: ListView.separated(
         itemBuilder: (context, index)=> Container(
@@ -36,7 +34,7 @@ Widget buildOurPersonItem(context, list, String relation){
                     child: Text(
                         '${PersonModel.fromJson(list[index]).id}',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.headline3.color,
+                        color: Theme.of(context).textTheme.headline3!.color,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -52,7 +50,7 @@ Widget buildOurPersonItem(context, list, String relation){
                           child: Text(
                               '${PersonModel.fromJson(list[index]).name}',
                             style: TextStyle(
-                              color: Theme.of(context).textTheme.headline3.color,
+                              color: Theme.of(context).textTheme.headline3!.color,
                               fontSize: 18,
                             ),
                             maxLines: 1,
@@ -62,7 +60,7 @@ Widget buildOurPersonItem(context, list, String relation){
                         Text(
                             '${PersonModel.fromJson(list[index]).number}',
                           style: TextStyle(
-                            color: Theme.of(context).textTheme.headline3.color.withOpacity(.7),
+                            color: Theme.of(context).textTheme.headline3!.color!.withOpacity(.7),
                             fontSize: 16,
                           ),
                         ),
@@ -85,15 +83,17 @@ Widget buildOurPersonItem(context, list, String relation){
         separatorBuilder: (context, index) => Divider(),
         itemCount: list.length,
       ),
-    ),
-    fallback: (context) => Center(
+    );
+
+  else
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             Icons.family_restroom,
             size: 70,
-            color: Theme.of(context).accentColor.withOpacity(.6),
+            color: Theme.of(context)!.primaryColor.withOpacity(.6),
           ),
           SizedBox(height: 20,),
           Text(
@@ -102,7 +102,7 @@ Widget buildOurPersonItem(context, list, String relation){
           ),
         ],
       ),
-    ),
-  );
+    );
+   
 }
 

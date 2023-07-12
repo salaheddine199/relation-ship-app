@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:relation_ships_program/layout/cubit/cubit.dart';
-import 'package:relation_ships_program/layout/cubit/states.dart';
-import 'package:relation_ships_program/shared/components.dart';
+import 'package:relationships/layout/cubit/cubit.dart';
+import 'package:relationships/layout/cubit/states.dart';
+import 'package:relationships/shared/components.dart';
 
 class BusinessScreen extends StatelessWidget {
   @override

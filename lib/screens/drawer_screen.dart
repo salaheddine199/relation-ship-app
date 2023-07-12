@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:relation_ships_program/screens/setting_screen.dart';
-import 'package:relation_ships_program/shared/components.dart';
+import 'package:relationships/screens/setting_screen.dart';
+import 'package:relationships/shared/components.dart';
 
 class MyDrawer extends StatelessWidget {
 
@@ -41,7 +40,7 @@ class MyDrawer extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                        color: Theme.of(context).textTheme.headline3.color,
+                        color: Theme.of(context).textTheme.headline3!.color,
                       ),
                     ),
                   ],
